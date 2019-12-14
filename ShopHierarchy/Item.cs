@@ -3,7 +3,7 @@
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Customer
+	public class Item
 	{
 		public int Id { get; set; }
 
@@ -11,15 +11,12 @@
 		[MaxLength(50)]
 		public string Name { get; set; }
 
-		public int SalesmanId { get; set; }
+		public decimal Price { get; set; }
 
-		public Salesman Salesman { get; set; }
+		public List<ItemOrder> Orders { get; set; } = new List<ItemOrder>();
 
-		//public int ReviewId { get; set; }
 		public List<Review> Reviews { get; set; } = new List<Review>();
-
-		//public int OrderId { get; set; }	
-		public List<Order> Orders { get; set; } = new List<Order>();
 
 	}
 }
+
