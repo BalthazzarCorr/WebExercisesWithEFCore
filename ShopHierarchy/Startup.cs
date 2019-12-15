@@ -28,24 +28,7 @@
 		
 
 
-		private static void PrintCustomerCountReviewsAndOrders(MyDbContext db)
-		{
-			var customersData = db.Customers.Select(c => new
-			{
-				c.Name,
-				Orders = c.Orders.Count,
-				Reviews = c.Reviews.Count
-			}).OrderByDescending(c => c.Orders)
-				.ThenByDescending(r => r.Reviews)
-				.ToList();
-
-			foreach (var customer in customersData)
-			{
-				Console.WriteLine(customer.Name);
-				Console.WriteLine($"Orders:{customer.Orders}");
-				Console.WriteLine($"Reviews: {customer.Reviews}");
-			}
-		}
+	
 
 
 		private static void ProcessCommands(MyDbContext db)
@@ -135,6 +118,24 @@
 			}
 		}
 
+		private static void PrintCustomerCountReviewsAndOrders(MyDbContext db)
+		{
+			var customersData = db.Customers.Select(c => new
+				{
+					c.Name,
+					Orders = c.Orders.Count,
+					Reviews = c.Reviews.Count
+				}).OrderByDescending(c => c.Orders)
+				.ThenByDescending(r => r.Reviews)
+				.ToList();
+
+			foreach (var customer in customersData)
+			{
+				Console.WriteLine(customer.Name);
+				Console.WriteLine($"Orders:{customer.Orders}");
+				Console.WriteLine($"Reviews: {customer.Reviews}");
+			}
+		}
 		private static void SaveReview(MyDbContext db, string arguments)
 		{
 			var parts = arguments.Split(';');
@@ -206,29 +207,33 @@
 			
 			int customerId = int.Parse(Console.ReadLine());
 
+
 			var customerData = db
 				.Customers
 				.Where(c => c.Id == customerId)
-				.Select(c=> new
+				.Select(c => new
 				{
-					Orders = c
-						.Orders
-						.Select(o=> new
+					Orders = c.Orders.Select(o => new
 					{
+
 						o.Id,
 						Items = o.Items.Count
-					})
-						.OrderByDescending(o=>o.Id)
-					,Reviews = c.Reviews.Count
+
+					}).OrderBy(o => o.Id),
+					Reviews = c.Reviews.Count
+
+					
 				}).FirstOrDefault();
-				
-//
-//			foreach (var order in customerData.Orders)
-//			{
-//				Console.WriteLine($"order{order.Id} : {order.Items}");
-//			}
-//
-//			Console.WriteLine($"reviews: {customerData.Reviews}");
+
+		  
+
+
+			foreach (var order in customerData.Orders)
+			{
+				Console.WriteLine($"order{order.Id} : {order.Items}");
+			}
+
+			Console.WriteLine($"reviews: {customerData.Reviews}");
 		}
 
 	}

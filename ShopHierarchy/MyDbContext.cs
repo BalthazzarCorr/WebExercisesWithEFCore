@@ -15,29 +15,29 @@
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder
-				.UseSqlServer(@"Server=DESKTOP-F1TG1GJ\SQLEXPRESS;Database=ShopDatabase;Integrated Security=True;");
+				.UseSqlServer(@"Server=BALTSERVER\SQLEXPRESS;Database=ShopDatabase;Integrated Security=True;");
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder
-				.Entity<Salesman>()
-				.HasMany(c => c.Customers)
-				.WithOne(e => e.Salesman)
-				.HasForeignKey(s => s.SalesmanId);
+				.Entity<Customer>()
+				.HasOne(c => c.Salesman)
+				.WithMany(s => s.Customers)
+				.HasForeignKey(c => c.SalesmanId);
 
 			modelBuilder
 				.Entity<Order>()
-				.HasOne(c => c.Customer)
+				.HasOne(o => o.Customer)
 				.WithMany(c => c.Orders)
-				.HasForeignKey(c => c.CustomerId);
+				.HasForeignKey(o => o.CustomerId);
 
 
 			modelBuilder
 				.Entity<Review>()
-				.HasOne(c => c.Customer)
-				.WithMany(r => r.Reviews)
-				.HasForeignKey(c => c.CustomerId);
+				.HasOne(r => r.Customer)
+				.WithMany(c => c.Reviews)
+				.HasForeignKey(r => r.CustomerId);
 
 
 			modelBuilder
@@ -56,15 +56,15 @@
 
 			modelBuilder
 				.Entity<Order>()
-				.HasMany(i => i.Items)
-				.WithOne(o => o.Order)
-				.HasForeignKey(o => o.OrderId);
+				.HasMany(o => o.Items)
+				.WithOne(io => io.Order)
+				.HasForeignKey(io => io.OrderId);
 
 			modelBuilder
 				.Entity<Item>()
-				.HasMany(r => r.Reviews)
-				.WithOne(i => i.Item)
-				.HasForeignKey(k => k.ItemId);
+				.HasMany(i => i.Reviews)
+				.WithOne(r => r.Item)
+				.HasForeignKey(r => r.ItemId);
 		}
 	}
 }
