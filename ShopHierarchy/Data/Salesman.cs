@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace ShopHierarchy
+﻿
+namespace ShopHierarchy.Data
 {
-    using System.ComponentModel.DataAnnotations;
+	using System.Collections.Generic;
+	using System.ComponentModel.DataAnnotations;
 
-    public class Salesman
+	public class Salesman
     {
         public int Id { get; set; }
 

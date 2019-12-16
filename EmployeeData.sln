@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeData", "EmployeeData\EmployeeData.csproj", "{0AFD7E23-28D6-45DC-90AE-12DE67FF8F47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopHierarchy", "ShopHierarchy\ShopHierarchy.csproj", "{86051BBA-3B45-438B-8BFF-D17D0811F0DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopHierarchy", "ShopHierarchy\ShopHierarchy.csproj", "{86051BBA-3B45-438B-8BFF-D17D0811F0DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem", "StudentSystem\StudentSystem.csproj", "{9F280AC5-8F10-4BD7-8054-8B6C37686DAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{86051BBA-3B45-438B-8BFF-D17D0811F0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86051BBA-3B45-438B-8BFF-D17D0811F0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86051BBA-3B45-438B-8BFF-D17D0811F0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F280AC5-8F10-4BD7-8054-8B6C37686DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F280AC5-8F10-4BD7-8054-8B6C37686DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F280AC5-8F10-4BD7-8054-8B6C37686DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F280AC5-8F10-4BD7-8054-8B6C37686DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

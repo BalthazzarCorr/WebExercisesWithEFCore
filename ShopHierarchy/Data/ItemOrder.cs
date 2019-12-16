@@ -1,4 +1,4 @@
-﻿namespace ShopHierarchy
+﻿namespace ShopHierarchy.Data
 {
 	public class ItemOrder
 	{

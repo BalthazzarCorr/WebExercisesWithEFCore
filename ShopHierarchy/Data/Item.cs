@@ -1,4 +1,4 @@
-﻿namespace ShopHierarchy
+﻿namespace ShopHierarchy.Data
 {
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;

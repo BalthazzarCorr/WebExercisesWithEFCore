@@ -1,5 +1,6 @@
-﻿namespace ShopHierarchy
+﻿namespace ShopHierarchy.Data
 {
+
 	using Microsoft.EntityFrameworkCore;
 	public class MyDbContext : DbContext
 	{
@@ -15,7 +16,7 @@
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder
-				.UseSqlServer(@"Server=BALTSERVER\SQLEXPRESS;Database=ShopDatabase;Integrated Security=True;");
+				.UseSqlServer(@"Server=DESKTOP-F1TG1GJ\SQLEXPRESS;Database=ShopDatabase;Integrated Security=True;");
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

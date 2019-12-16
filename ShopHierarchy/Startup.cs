@@ -1,7 +1,7 @@
 ﻿namespace ShopHierarchy
 {
+	using Data;
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 
 	class Startup
@@ -19,16 +19,14 @@
 				//	PrintCustomerCountPerSalesman(db);
 				//PrintCustomerCountReviewsAndOrders(db);
 
-				PrintCustomerOrdersAndReviews(db);
+				//PrintCustomerOrdersAndReviews(db);
 
 				//PrintCustomerData(db);
+
+				PrintOrdersWithMoreThenOneItem(db);
 			}
 		}
 
-		
-
-
-	
 
 
 		private static void ProcessCommands(MyDbContext db)
@@ -234,6 +232,18 @@
 			}
 
 			Console.WriteLine($"reviews: {customerData.Reviews}");
+		}
+
+
+		private static void PrintOrdersWithMoreThenOneItem(MyDbContext db)
+		{
+			int customerId = int.Parse(Console.ReadLine());
+
+			var orders = db
+				.Orders
+				.Count(o => o.CustomerId == customerId && o.Items.Count > 1);
+
+			Console.WriteLine($"Order: {orders}");
 		}
 
 	}
